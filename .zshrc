@@ -1,17 +1,17 @@
-# ask for the password on command prompt login
-sudo -v
-
 # Setup PATH
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.composer/vendor/bin
 
 # Add custom stuff to PATH
 export PATH=$PATH:/usr/local/mysql/bin
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.fastlane/bin:$PATH"
+export PATH="$PATH:/usr/local/bin/geckodriver"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/Risko/.oh-my-zsh
 
 # Theme
-ZSH_THEME="junkfood" # my favs: agnoster, junkfood, miloshadzic, smt, jnrowe, crunch, bira, dogenpunk, frisk, gallois
+ZSH_THEME="agnoster" # my favs: dotdot, bullet-train, agnoster, junkfood, miloshadzic, smt, crunch, bira, dogenpunk, frisk, gallois
 
 # Loading plugins
 plugins=(git)
@@ -32,9 +32,7 @@ alias ga="git add ."
 alias gcm="git commit -m"
 alias gs="git status"
 alias gp="git push"
-
-# fUn aliases
-# alias snow="ruby -e 'C=`stty size`.scan(/\d+/)[1].to_i;S=["2743".to_i(16)].pack("U*");a={};puts "\033[2J";loop{a[rand(C)]=0;a.each{|x,o|;a[x]+=1;print "\033[#{o};#{x}H \033[#{a[x]};#{x}H#{S} \033[0;0H"};$stdout.flush;sleep 0.1}'"
+alias spaceship="echo 🚀 🚀 🚀"
 
 # Custom startup commands
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # terminal syntax highlighting
@@ -54,14 +52,11 @@ export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 # --------------
-# OSX stuff
+# macOS stuff
 # --------------
 # big save panel default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
-
-# fast key-repeat
-defaults write NSGlobalDomain KeyRepeat -int 0
 
 # disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -81,3 +76,6 @@ defaults write com.apple.dock mru-spaces -bool false
 
 # disable the Dock auto-hiding delay
 defaults write com.apple.dock autohide-delay -float 0
+
+# enable showing hidden files all the time
+defaults write com.apple.finder AppleShowAllFiles YES
